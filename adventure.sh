@@ -1,38 +1,35 @@
 #!/bin/bash
 
-# Launch script for BashVenture. This sets up a new user instance (so many users on the same server can play).
-# Please enjoy playing the game - and playing with the code. Please do give me a mention, and be
-# sure to link back to the original GitHub page so people can fork and build something of their own.
+# This Launch script is based on BashVenture.
+# It runs on Astroport Stations and allow players to create their own digital stories
+# First you have to install IPFS in order to play with everyone in the same network
 #
 # Remember, kids - sharing is caring! Keep it open. Spread the love.
 #                                                      - @BenNunney
-#
+# Thanks and gratitude to all living creatures and the whole creation.
+#                                                      - @Fred
 
-# Here we check to see if uuidgen is installed - if not it will default to single-user mode. To run this on a server
-# and support multipe-users, check you have everthing set up correctly. Follow the instructions in the ReadMe file on GitHub.
-
-if hash uuidgen 2>/dev/null; then
+if [[ ! -d ~/.zen/game/rooms ]]; then
 homefolder=$(pwd)
-newplayer=$(uuidgen)
-mkdir $newplayer
-cp -r rooms $newplayer/rooms
-cp -r art $newplayer/art
-cp -r script $newplayer/script
-cp -r logic $newplayer/logic
+newgame="$HOME/.zen/game"
+
+mkdir -p $newgame
+
+cp -r rooms $newgame/rooms
+cp -r art $newgame/art
+cp -r script $newgame/script
+cp -r logic $newgame/logic
 fi
 
-echo "Loading..."
+echo "Chargement..."
 echo
-sleep 4
-if hash uuidgen 2>/dev/null; then
-cd $newplayer/rooms
-else
-cd rooms
-fi
+sleep 3
+
+cd $newgame/rooms
 ./start.sh
-if hash uuidgen 2>/dev/null; then
+
 cd "$homefolder"
-rm -r $newplayer
-fi
+rm -r $newgame
+
 echo
 exit

@@ -11,11 +11,11 @@ done <"$file1"
 # Obviously if you use this framework to create a game of your own, you can extend this massively.
 echo
 sleep 1
-echo "You step through the door and into what looks like a scene from a movie."
+echo "Vous vous dirigez vers le mur ouest."
 echo
 sleep 3
-echo "There's a long table in front of you. Sat around it are several well-dressed"
-echo "people, both men and women, eating a very elaborate looking dinner."
+echo "Un long plan de travail se trouve devant vous. Sur le coté de nombreux bocaux"
+echo "certain, eating a very elaborate looking dinner."
 sleep 2
 echo "Weird."
 echo

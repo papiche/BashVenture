@@ -14,35 +14,35 @@ echo
 
 # It's script time again...
 sleep 1
-echo "What. The. Actual. Fuck."
+echo "Vous pénétrez à l'intérieur de l'Astroport."
 echo
 sleep 3
-echo "You hugged a statue of a beautiful kitten. As you do."
+echo "Une voix synthétique vous accueille."
 echo
-echo "But you weren't expecting it to come to life and transport"
-echo "you to another mystery room. This is getting a bit weird."
+echo "Vous parcourez l'espace du regard"
+echo "Au nord, face à vous se trouve un foyer où brule un bon feu."
 echo
-echo "You now seem to find yourself in a small-ish corridor. You can"
-echo "see a glow coming from the rooms to your east and west, and"
-echo "there's a big, old looking door south of you."
+echo "A l'Ouest se trouve un mur où sont suspendus tuyaux, ustensiles et bocaux"
+echo "Un écran et clavier d'ordinateur se situent à l'Est"
+echo "Derrière vous, la porte par où vous êtes entré est toujours ouverte."
 echo
-echo "What would you like to do?"
+echo "Que voulez vous faire?"
 
 # And once again the room logic.
 
 while true; do
     read -p "> " nsewuh
     case $nsewuh in
-        n ) echo "You faceplant the wall. Idiot." ;;
+        n ) echo "Vous vous asseyez sur le grand tapis. Le feu est envoutant. Vous vous relaxez un instant." ;;
         s ) ./bigroom.sh
              exit ;;
         e ) ./gameroom.sh
             exit ;;
         w ) ./grue.sh
             exit ;;
-		u ) echo "There's nothing you can use right here." ;;
-		h ) echo "After hugging that cat you aren't sure you should try to hug yourself again." ;;
-        * ) echo "I'm sorry, I don't understand you. Commands are: n, e, s, w, u and h.";;
+        u ) echo "Choisissez une zone vers où vous diriger dans la pièce pour pouvoir agir." ;;
+        h ) echo "La chaleur est agréable. Sur votre gauche une cuisine, à votre droite un salon" ;;
+        * ) echo "Je suis désolé, je ne vous comprends pas. Les commandes sont : n, e, s, w, u et h..";;
     esac
 done
 

@@ -10,27 +10,30 @@ echo
 
 # Set up the script for this room. It's a simple one!
 sleep 1
-echo "You're in a room that has an odd red glow to it."
-echo "Bookcases line the walls - dusty volumes with titles you"
-echo "can't quite make out. Somehow they seem ancient."
+echo "Vous entrez dans l'ancienne bergerie."
+echo "Un canapé mauve est installé au milieu de l'espace"
+echo "Une bache transparente vous sépare du ciel."
 echo
-echo "There's a very comfortable looking chair in the corner."
-echo "The only exit is to the west, back in the direction you came."
+echo "Vous êtes dans une serre."
+echo "Une seule sortie. A l'Ouest, d'où vous venez."
 echo
-echo "What would you like to do?"
+echo "Que voulez-vous faire?"
 
 # And the choices go here.
 while true; do
     read -p "> " nsewuh
     case $nsewuh in
-        n ) echo "Face, meet wall. Wall, meet Face." ;;
-        s ) echo "You can't walk through walls." ;;
-        e ) echo "Nothing but wall here." ;;
+        n ) echo "Une fente dans le mur vous laisse observer une carcasse de voiture. Une vieille 2cv. Un grillage vous empêche de passer." ;;
+        s ) echo "L'emplacement d'un grand feu se trouve la. Il ne reste que de la cendre." ;;
+        e ) echo "Une autre pièce remplie de gravats et d'éboulis se trouve devant vous. Impossible d'y accéder." ;;
         w ) ./mainroom.sh
             exit ;;
-		u ) echo "You sit in the comfortable chair. It's like sitting on a cloud." ;;
-		h ) echo "You give yourself a hug, hoping that the books won't judge you." ;;
-        * ) echo "I'm sorry, I don't understand you. Commands are: n, e, s, w, u and h.";;
+        u ) echo "Vous vous asseyez dans le canapé. Vous vous sentez immédiatement happé par un nuage."
+              sleep 2
+              xdg-open "https://www.copylaradio.com/blog/blog-1/post/le-pas-a-pas-qui-libere-du-grand-mechant-cloud-36#scrollTop=0"
+              ;;
+        h ) echo "Aucun détail particulier si ce n'est une tache sur le sofa." ;;
+        * ) echo "Je suis désolé, je ne vous comprends pas. Les commandes sont : n, e, s, w, u et h..";;
     esac
 done
 

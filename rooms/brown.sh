@@ -4,54 +4,54 @@ clear
 file1="../art/titleart.ben"
 while IFS= read -r line
 do
-	echo "$line"
+    echo "$line"
 done <"$file1"
 echo
 sleep 1
 
 # Here's this room's script.
 
-echo "You run south and through an open archway into a dark, dingy place."
-echo "The carpet looks like the 70s threw up on it, and the place smells faintly"
-echo "of cabbage. This could well be every retirement home ever made, combined"
-echo "into one place. It's tragic."
+echo "Sur la direction du sud, vous traversez une zone plus sombre et humide."
+echo "Le sol est glissant à cause de l'argile qui colle sous vos bottes"
+echo "Vous finissez par croiser un chemin qui traverse la forêt d'Est en Ouest"
 echo
-echo "Oddly, though, there's a lever set into the right hand wall."
+echo "Un terminal informatique est installé là."
+echo
+echo "Il ressemble à une grosse calculatrice"
+
 
 # Here we tell the player whether the lever is on or off.
 leverstate=`cat ../logic/leverlogic.ben`
             if [ "$leverstate" = "on" ]; then
-                echo "The last time you were in this room, you turned the lever on. It's still on."
+                echo "Le mot SCAN clignote sur l'écran..."
             else
-                echo "It looks like it's in the off position."
-            fi 
+                echo "La machine affiche l'heure qu'il est $(date +"%H:%M")"
+            fi
 echo
-echo "The only exit is north, back the way you came."
+echo "Il est tard pour explorer le chemin à pied, vous devriez retourner d'où vous venez."
 echo
-echo "What would you like to do?"
+echo "Que faites vous?"
 
 # In this set of actons lies the logic switch used later in the game.
 # You have to set this switch to reach the endgame.
 while true; do
     read -p "> " nsewuh
     case $nsewuh in
-        n ) ./mainroom.sh 
+        n ) ./mainroom.sh
             exit ;;
-        s ) echo "You attempt to walk through the wall. You fail." ;;
-        e ) echo "Right, let me explain this whole 'wall' thing to you..." ;;
-        w ) echo "Seriously? Though the wall? Sorry, I can't do that." ;;
-		u ) leverstate=`cat ../logic/leverlogic.ben`
+        s ) echo "Si vous continuez à marcher dans la forêt. Vous allez vous perdre. Demi tour." ;;
+        e ) echo "Le chemin qui part à l'Est est plein de boue... Impossble d'aller par là." ;;
+        w ) echo "Une rivière vous empêche de passer." ;;
+        u ) leverstate=`cat ../logic/leverlogic.ben`
             if [ "$leverstate" = "on" ]; then
-                echo "Having already turned it on, you try to turn it off. And fail."
+                echo "L'écran  fait défiler le texte 'VISA SVP'"
             else
                 sed -i='' 's/off/on/' ../logic/leverlogic.ben
-                echo "You push the lever to 'on', and hear a humming start elsewhere in the building."
-            fi 
+                echo "Vous touchez le clavier. L'écran se met à clignoter... "
+            fi
         ;;
-
-
-		h ) echo "You hug yourself, and hope nobody is watching." ;;
-        * ) echo "I'm sorry, I don't understand you. Commands are: n, e, s, w, u and h.";;
+        h ) echo "Le terminal est réalisé avec un mini ordinateur Raspberry Pi. Il porte un logo - MadeInZion - Astroport ONE" ;;
+        * ) echo "Je suis désolé, je ne vous comprends pas. Les commandes sont : n, e, s, w, u et h..";;
     esac
 done
 

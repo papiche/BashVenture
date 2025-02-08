@@ -15,14 +15,13 @@ echo
 
 # Shakesphere wrote this, honest.
 sleep 1
-echo "You are back in the room you first woke up in."
-echo "It's huge. You can't really fathom how large, but it took"
-echo "long enough to get from that last room back to the middle of"
-echo "this one. You wonder how you got here, and who is responsible."
+echo "Vous êtes de retour à votre point de départ."
+echo "La forêt qui vous entoure est immense."
+echo "Vous ne pouvez pas vraiment en imaginer la taille,"
 echo
-echo "You can just about see doors to the north, east, south and west."
+echo "Vous pouvez vous diriger au nord, à l'est, au sud et à l'ouest."
 echo
-echo "What would you like to do?"
+echo "Que voulez-vous faire ?"
 
 # And the room logic once again.
 while true; do
@@ -32,13 +31,13 @@ while true; do
             exit ;;
         s ) ./brown.sh
              exit ;;
-        e ) ./red.sh 
+        e ) ./red.sh
             exit ;;
         w ) ./green.sh
             exit ;;
-		u ) echo "There's nothing you can use right here." ;;
-		h ) echo "You give yourself a quick hug. It's not very satisfying." ;;
-        * ) echo "I'm sorry, I don't understand you. Commands are: n, e, s, w, u and h.";;
+        u ) echo "Il n'y a rien que vous puissiez utiliser ici." ;;
+        h ) echo "Vous observez votre montre, il est 20:12" ;;
+        * ) echo "Je suis désolé, je ne vous comprends pas. Les commandes sont : n, e, s, w, u et h..";;
     esac
 done
 
